@@ -15,7 +15,7 @@ More info: [Writing](http://hexo.io/docs/writing.html)
 ``` bash
 $ hexo server
 ```
-
+<!-- more -->
 More info: [Server](http://hexo.io/docs/server.html)
 
 ### Generate static files
