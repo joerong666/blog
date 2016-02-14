@@ -1,5 +1,6 @@
 title: C语言基于对象编程(二)
-tags: C语言
+tags: C
+categories: C语言
 ---
 
 ### 前言
