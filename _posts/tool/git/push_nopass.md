@@ -1,6 +1,6 @@
 title: Windows Git Bash Push 免用户名密码
 tags: git
-categories: 工具
+categories: tool
 ---
 ## 创建文件存储GIT用户名和密码
 

@@ -1,6 +1,6 @@
 title: Markdown资源
 tags: markdown
-categories: 收藏
+categories: favor
 ---
 ## Markdown编辑器
 
