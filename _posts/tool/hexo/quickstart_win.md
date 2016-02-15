@@ -1,4 +1,4 @@
-title: Hexo + GitHub 速搭建个人博客（Windows版）
+title: Hexo+GitHub速建博客(Win)
 tags: 
 - hexo
 - git
@@ -26,13 +26,18 @@ categories: tool
 一路next即可
 
 ### 安装 hexo
+所有命令都通过git bash控制台执行
+
 ``` bash
 $ npm install -g hexo-cli
 ```
 ### 创建本地博客环境
+在e:\myblog目录搭建博客环境，对应下面的/e/myblog
+
 ``` bash
 $ cd /e && mkdir myblog && cd myblog
 $ hexo init
+$ npm install
 ```
 
 ### 本地试运行
@@ -43,6 +48,10 @@ $ hexo s
 至此，一个本地的helloworld博客即完成，查看效果访问：http://localhost:4000
 
 ### 发布到github
+### 安装 hexo插件
+``` bash
+$ npm install hexo-deployer-git --save
+```
 #### 修改配置
 ``` bash
 $ vim _config.yml

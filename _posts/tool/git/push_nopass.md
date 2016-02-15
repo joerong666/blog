@@ -1,4 +1,4 @@
-title: Windows Git Bash Push 免用户名密码
+title: Win Git免密码
 tags: git
 categories: tool
 ---
