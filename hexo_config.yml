@@ -68,7 +68,7 @@ pagination_dir: page
 #theme: light_cn
 #theme: lighting
 #theme: lightup
-theme: green-light
+theme: my-green-light
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
