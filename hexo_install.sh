@@ -8,15 +8,13 @@ cd hexo
 npm install hexo-cli -g
 hexo init
 
-git config --global user.name "$u_name"
-git config --global user.email "$u_email"
-
 cat <<EOF >~/.git-credentials
 https://$u_name:$u_pass@github.com
-
-[credential]
-    helper = store
 EOF
+
+git config --global user.name "$u_name"
+git config --global user.email "$u_email"
+git config --global credential.helper store
 
 git clone https://github.com/$u_name/hexo-theme-green-light.git themes/my-green-light
 
