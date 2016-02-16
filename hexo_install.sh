@@ -1,33 +1,43 @@
 u_pass="$1"
 u_name="joerong666"
 u_email="joerong666@126.com"
+theme="green-light"
 
-mkdir hexo
-cd hexo
+if [ "$u_pass" -eq "init" ]; then
+    ssh-keygen -t rsa -C "$u_email"
 
-npm install hexo-cli -g
-hexo init
+    echo "attach the following text to github ssh keys"
+    cat ~/.id_rsa.pub
+elif [ -n "$u_pass" ]; then
 
-cat <<EOF >~/.git-credentials
-https://$u_name:$u_pass@github.com
-EOF
+    mkdir hexo
+    cd hexo
 
-git config --global user.name "$u_name"
-git config --global user.email "$u_email"
-git config --global credential.helper store
+    npm install hexo-cli -g
+    hexo init
 
-git clone https://github.com/$u_name/hexo-theme-green-light.git themes/my-green-light
+    cat <<EOF >~/.git-credentials
+    https://$u_name:$u_pass@github.com
+    EOF
 
-rm -rf source
-git clone https://github.com/$u_name/blog.git source
+    git config --global user.name "$u_name"
+    git config --global user.email "$u_email"
+    git config --global credential.helper store
 
-ln -f source/hexo_config.yml _config.yml
-ln -f source/theme_config.yml themes/my-green-light/_config.yml
+    git clone https://github.com/$u_name/hexo-theme-${theme}.git themes/$theme
 
-npm install
-npm install hexo-deployer-git --save
-npm install hexo-tag-plantuml --save
-npm install hexo-generator-feed --save
+    rm -rf source
+    git clone https://github.com/$u_name/blog.git source
 
-#ssh-keygen -t rsa -C "$u_email"
-#cat ~/.id_rsa.pub
+    ln -f source/hexo_config.yml _config.yml
+    ln -f source/theme_config.yml themes/${theme}/_config.yml
+
+    sed -i "s/^theme:.*/theme: $them/" _config.yml
+
+    npm install
+    npm install hexo-deployer-git --save
+    npm install hexo-tag-plantuml --save
+    npm install hexo-generator-feed --save
+else
+    echo "$0 [init|<passwd>]"
+fi
