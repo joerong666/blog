@@ -1,19 +1,35 @@
-u_dir="$1"
-u_name="$2"
-u_email="$3"
-u_pass="$4"
+u_pass="$1"
+u_name="joerong666"
+u_email="joerong666@126.com"
 
-mkdir -p $u_dir&& cd $u_dir
+mkdir hexo
+cd hexo
 
 npm install hexo-cli -g
+hexo init
+npm install
+
 npm install hexo-deployer-git --save
 npm install hexo-tag-plantuml --save
 npm install hexo-generator-feed --save
 
-hexo init
-
 git config --global user.name "$u_name"
 git config --global user.email "$u_email"
 
-ssh-keygen -t rsa -C "$u_email"
-ssh -T git@github.com
+cat <<EOF >~/.git-credentials
+https://$u_name:$u_pass@github.com
+
+[credential]
+    helper = store
+EOF
+
+git clone https://github.com/$u_name/hexo-theme-green-light.git themes/green-light
+
+rm -rf source
+git clone https://github.com/$u_name/blog.git source
+
+ln -f source/hexo_config.yml _config.yml
+ln -f source/theme_config.yml themes/green-light/_config.yml
+
+#ssh-keygen -t rsa -C "$u_email"
+#cat ~/.id_rsa.pub
