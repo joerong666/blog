@@ -68,6 +68,7 @@ pagination_dir: page
 #theme: light_cn
 #theme: lighting
 #theme: lightup
+#theme: indigo
 theme: my-green-light
 
 # Deployment

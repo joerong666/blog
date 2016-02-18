@@ -5,4 +5,5 @@ tags: hexo
 
 - http://www.jianshu.com/p/df3edc4286d2
 - http://ibruce.info/2013/11/22/hexo-your-blog/
+- 主题：https://github.com/hexojs/hexo/wiki/Themes
 
